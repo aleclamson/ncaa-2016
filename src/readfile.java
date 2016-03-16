@@ -85,10 +85,10 @@ public class ReadFile {
 		ArrayList<Team> midwest = sortTeam(teams, "Midwest");
 		ArrayList<Team> east = sortTeam(teams, "East");
 		ArrayList<Team> south = sortTeam(teams, "South");
-	    System.out.println(getRegionWinner(west).getName() + " has won the West bracket");
-	    System.out.println(getRegionWinner(midwest).getName() + " has won the Midwest bracket");
-	    System.out.println(getRegionWinner(east).getName() + " has won the East bracket");
-	    System.out.println(getRegionWinner(south).getName() + " has won the South bracket");
+	    System.out.println(getRegionWinner(west).getName() + " won West bracket");
+	    System.out.println(getRegionWinner(midwest).getName() + " won Midwest bracket");
+	    System.out.println(getRegionWinner(east).getName() + " won East bracket");
+	    System.out.println(getRegionWinner(south).getName() + " won South bracket");
 	    Team final1 = getWinner(getRegionWinner(west),getRegionWinner(south));
 	    Team final2 = getWinner(getRegionWinner(east),getRegionWinner(midwest));
 	    System.out.println(final1.getName() + " has advanced to the finals!");
