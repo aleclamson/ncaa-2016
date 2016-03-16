@@ -64,4 +64,37 @@ public class ReadFile {
 		}
 	 return newTeam;
 	}
+	public static Team getRegionWinner(ArrayList<Team> numbers) {
+	    Team first = getWinner(numbers.get(0), numbers.get(15));
+	    Team second = getWinner(numbers.get(1), numbers.get(14));
+	    Team third = getWinner(numbers.get(2), numbers.get(13));
+	    Team fourth = getWinner(numbers.get(3), numbers.get(12));
+	    Team fifth = getWinner(numbers.get(4), numbers.get(11));
+	    Team sixth = getWinner(numbers.get(5), numbers.get(10));
+	    Team seventh = getWinner(numbers.get(6), numbers.get(9));
+	    Team eight = getWinner(numbers.get(7), numbers.get(8));
+	    Team firstsec = getWinner(first, second);
+	    Team threefou = getWinner(third, fourth);
+	    Team fivesix = getWinner(fifth, sixth);
+	    Team seveneig = getWinner(seventh, eight);
+	    return getWinner( getWinner(firstsec, threefou), getWinner(fivesix, seveneig));
+	  	
+	}
+	public static void getFinalChamp(ArrayList<Team> teams) {
+		ArrayList<Team> west = sortTeam(teams, "West");
+		ArrayList<Team> midwest = sortTeam(teams, "Midwest");
+		ArrayList<Team> east = sortTeam(teams, "East");
+		ArrayList<Team> south = sortTeam(teams, "South");
+	    System.out.println(getRegionWinner(west).getName() + " has won the West bracket");
+	    System.out.println(getRegionWinner(midwest).getName() + " has won the Midwest bracket");
+	    System.out.println(getRegionWinner(east).getName() + " has won the East bracket");
+	    System.out.println(getRegionWinner(south).getName() + " has won the South bracket");
+	    Team final1 = getWinner(getRegionWinner(west),getRegionWinner(south));
+	    Team final2 = getWinner(getRegionWinner(east),getRegionWinner(midwest));
+	    System.out.println(final1.getName() + " has advanced to the finals!");
+	    System.out.println(final2.getName() + " has advanced to the finals!");
+	    System.out.println(getWinner(final1, final2).getName() +  " HAS WON THE TOURNAMENT");
+	    System.out.println();
+	}
+	
 }
